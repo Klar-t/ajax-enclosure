@@ -80,3 +80,30 @@ a{
 	color: #c81623;
 	font-size: 12px;
 }
+.mod-tab .cover .btn{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	border: 1px solid #c81623;
+	color: #c81623;
+	background: #fff;
+	padding: 10px 15px;
+	border-radius: 3px;
+	text-align: center;
+	backface-visibility: #fff;
+	cursor: pointer;
+}
+.mod-tab .cover{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: rgba(0,0,0,.3);
+	transition: all 0.3s;
+	opacity: 0;
+}
+.mod-tab .prod.hover .cover{
+	opacity: 1;
+}
