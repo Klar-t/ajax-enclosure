@@ -1,0 +1,129 @@
+*{
+	padding: 0;
+	margin: 0;
+	font: 14px/150% Arial,Verdana,"\5b8b\4f53";
+	box-sizing: border-box;
+}
+li{
+	list-style: none;
+}
+a{
+	color: #666;
+	text-decoration: none;
+}
+.mod-tab{
+	margin: 10px;
+}
+.clearfix::after{
+	display: block;
+	content: '';
+	clear: both;
+}
+.mod-tab .tabs{
+	float: left;
+	border: 1px solid #ccc;
+	border-bottom: none;
+	border-radius: 3px 3px 0 0;
+}
+.mod-tab .tabs li{
+	float: left;
+	padding: 8px 0;
+}
+.mod-tab .tabs li.active{
+	background: #ccc;
+}
+.mod-tab .tabs li.active a{
+	color: #c81623;
+}
+.mod-tab .tabs li a{
+	padding: 0 10px;
+	border-right: 1px solid #ccc;
+	line-height: 1;
+}
+.mod-tab .tabs li:last-child a{
+	border-right: none;
+}
+.wrap{
+	position: relative;
+	border: 1px solid #ccc;
+	height: 447px;
+	overflow: hidden;
+}
+.panel-ct{
+	width: 300%;
+}
+.panel-ct .wrap .panel{
+	float: left;
+	width: 33.3333%;
+}
+
+.mod-tab .prod-ct{
+	margin-left: -20px;
+	margin-top: -20px;
+}
+.mod-tab .prod{
+	position: relative;
+	float: left;
+	width: 220px;
+	padding: 10px 20px;
+	margin-left: 20px;
+	margin-top: 20px;
+	text-align: center;
+	border: 1px solid #eee;
+	background: #fff;
+}
+.mod-tab .prod-name{
+	height: 36px;
+	text-align: left;
+	font-weight: normal;
+	font-size: 12px;
+	color: #666;
+}
+.mod-tab .prod-price{
+	text-align: left;
+	color: #c81623;
+	font-size: 12px;
+}
+.mod-tab .cover .btn{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	border: 1px solid #c81623;
+	color: #c81623;
+	background: #fff;
+	padding: 10px 15px;
+	border-radius: 3px;
+	text-align: center;
+	backface-visibility: #fff;
+	cursor: pointer;
+}
+.mod-tab .cover{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: rgba(0,0,0,.3);
+	transition: all 0.3s;
+	opacity: 0;
+}
+.mod-tab .prod.hover .cover{
+	opacity: 1;
+}
+
+
+.btn-add{
+	margin-top: 20px;
+}
+
+.add{
+	display: inline-block;
+	border: 1px solid #C81623;
+	color: #C81623;
+	padding: 10px 15px;
+	border-radius: 3px;
+	text-align: center;
+	background: #fff;
+	cursor: pointer;
+}
