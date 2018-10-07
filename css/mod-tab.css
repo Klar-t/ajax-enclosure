@@ -107,3 +107,19 @@ a{
 .mod-tab .prod.hover .cover{
 	opacity: 1;
 }
+
+
+.btn-add{
+	margin-top: 20px;
+}
+
+.add{
+	display: inline-block;
+	border: 1px solid #C81623;
+	color: #C81623;
+	padding: 10px 15px;
+	border-radius: 3px;
+	text-align: center;
+	background: #fff;
+	cursor: pointer;
+}
