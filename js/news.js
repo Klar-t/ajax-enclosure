@@ -37,10 +37,3 @@ function isLoaded($img) {
 function loadImg($img){
   $img.attr('src', $img.attr('data-src'))
 }
-
-
-
-
-
-
-
