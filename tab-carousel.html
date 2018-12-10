@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>tab左右切换</title>
+		<script src="js/jquery-2.0.2.min.js"></script>
+		<style>
+			.carousel{
+				width: 320px;
+				height: 180px;
+				overflow: hidden;
+				position: relative;
+			}
+			.carousel ul,
+			.carousel li{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.carousel .img-ct img{
+				width: 320px;
+				height: 180px;
+			}
+			.carousel .img-ct{
+				position: absolute;
+				width: 1280px;
+				overflow: hidden;
+			}
+			.carousel .img-ct>li{
+				float: left;
+			}
+			
+			.carousel .arrow{
+				position: absolute;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				z-index: 1;
+				border-radius: 50%;
+				border: 1px solid #fff;
+				top: 50%;
+				margin-top: -15px;
+				line-height: 30px;
+				color: #fff;
+				text-align: center;
+				text-decoration: none;
+			}
+			.carousel .arrow:hover{
+				opacity: 0.8;
+			}
+			.carousel .pre{
+				left: 10px;
+			}
+			.carousel .next{
+				right: 10px;
+			}
+			
+			.carousel .bullet{
+				position: absolute;
+				bottom: 10px;
+				width: 100%;
+				font-size: 0;
+				z-index: 1;
+				text-align: center;
+			}
+			.carousel .bullet>li{
+				display: inline-block;
+				width: 30px;
+				height: 5px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+				margin: 0 3px;
+				cursor: pointer;
+			}
+			.carousel .bullet>li.active{
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="carousel">
+			<ul class="img-ct">
+				<li data-id=1><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg"></a></li>
+				<li data-id=1><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg"></a></li>
+				<li data-id=1><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg"></a></li>
+				<li data-id=1><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg"></a></li>
+			</ul>
+			<a href="#" class="pre arrow"><</a>
+			<a href="#" class="next arrow">></a>
+			<ul class="bullet">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<script>
+			var $imgCt=$('.carousel .img-ct');
+			var $imgs=$('.carousel .img-ct>li');
+			var $preBtn=$('.carousel .pre');
+			var $nextBtn=$('.carousel .next');
+			var $bullets=$('.carousel .bullet li');
+			var pageIndex=0;
+			var isAnimate=false;
+			var imgCount=$imgs.length;
+			var imgWidth=$imgs.width();
+			$imgCt.append($imgs.first().clone())
+			$imgCt.prepend($imgs.last().clone())
+			$imgCt.width((imgCount+2)*imgWidth)
+			$imgCt.css({left:-imgWidth})
+			
+			$nextBtn.click(function(){
+				playNext(1);
+			})
+			$preBtn.click(function(){
+				playpre(1);
+			})
+			
+			$bullets.click(function(){
+				var index=$(this).index();
+				if(index>pageIndex)
+				{
+					console.log(pageIndex)
+					playNext(index-pageIndex)
+				}else if(index<pageIndex)
+				{
+					console.log(pageIndex)
+					playpre(pageIndex-index)
+				}
+				
+			})
+			function playNext(len){
+				if(isAnimate) return;
+				isAnimate=true;
+				$imgCt.animate({
+					left:'-='+len*imgWidth
+				},function(){
+					pageIndex+=len
+					if(pageIndex===imgCount)
+					{
+						pageIndex=0;
+						$imgCt.css({left:-imgWidth})
+					}
+					setBullet();
+					isAnimate=false;
+				})
+			}
+			function playpre(len){
+				if(isAnimate) return;
+				isAnimate=true;
+				$imgCt.animate({
+					left:'+='+len*imgWidth
+				},function(){
+					pageIndex-=len
+					if(pageIndex<0)
+					{
+						pageIndex=imgCount-1;
+						$imgCt.css({left:-imgCount*mgWidth})
+					}
+					setBullet();
+					isAnimate=false;
+				})
+			}
+			function setBullet(){
+				$bullets.removeClass('active')
+						.eq(pageIndex)
+						.addClass('active'); 
+			}
+			
+		</script>
+	</body>
+</html>
