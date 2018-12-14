@@ -1,0 +1,82 @@
+<!DOCTYPE>
+<html>
+	 <head>
+		 <meta charset="utf-8" />
+		 <meta name="viewport" content="width=device-width, initial-scale=1">
+		 <title>waterfull</title>
+		 <script src="js/jquery-2.0.2.min.js"></script>
+		 <style type="text/css">
+			 html,body,ul,li,p,div{
+				 margin: 0;
+				 padding: 0;
+				 box-sizing: border-box;
+			 }
+			 ul,li{
+				 list-style: none;
+			 }
+			 .wrap{
+				 width: 900px;
+				 margin: 0 auto;
+			 }
+			 .clearfix::after{
+				 content: '';
+				 display: block;
+				 clear: both;
+			 }
+			 #pic-ct{
+				 position: relative;
+			 }
+			 #pic-ct .item{
+				 position: absolute;
+				 padding: 0 0 10px 0;
+				 width: 280px;
+				 margin: 10px;
+				 border: 1px solid #DFDFDF;
+				 background: #FFF;
+				 transition: all .8s;
+			 }
+			 #pic-ct .item img{
+				 margin: 10px;
+				 width: 260px;
+			 }
+			 #pic-ct .item .header{
+				 height: 25px;
+				 margin: 0 12px;
+				 border-bottom: 1px solid #DBDBDB;
+			 }
+			 #pic-ct .desp{
+				 font-size: 12px;
+				 line-height: 1.8;
+				 margin: 10px 15px 0;
+				 color: #777371;
+			 }
+			 #load{
+				 visibility: hidden;
+				 height: 20px;
+			 }
+			 .hide{
+				 display: none;
+			 }
+		 </style>
+	 </head>
+	 <body>
+	 	
+		<div class="wrap">
+			<div class="ct-waterfall">
+				<ul id="pic-ct" class="clearfix">
+					<li class="item">
+						<a href="#" class="link">
+							<img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg">
+						</a>
+						<h4 class="header">标题</h4>
+						<p class="desp">用于计算item 宽度和列数，但不展示出来用于计算item 
+						宽度和列数，但不展示出来用于计算item 宽度和列数，但不展示出来</p>
+					</li>
+					<!-- 用于计算item 宽度和列数，但不展示出来 -->
+					<li class="item hide"></li>
+				</ul>
+				<div id="load">我是看不见的</div>
+			</div>
+		</div>
+	 </body>
+</html>
