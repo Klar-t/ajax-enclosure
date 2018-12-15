@@ -13,6 +13,7 @@ function getDate(callback){
 	$.ajax({
 		url:'',
 		data:
+		datatype:'',
 	})
 }
 
