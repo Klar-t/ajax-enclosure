@@ -15,6 +15,7 @@ function getDate(callback){
 		data:'',
 		datatype:'',
 		success:'',
+		error:'',
 	})
 }
 
